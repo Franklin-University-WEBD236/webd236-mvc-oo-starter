@@ -70,7 +70,7 @@
       Please fix the following errors:
       <ul class="mb-0">
 <?php  foreach ($errors as $error): ?>
-        <li><?php echo(htmlspecialchars($error)); ?></li>
+        <li><?php echo($error); ?></li>
 <?php  endforeach; ?>
       </ul>
     </div>
@@ -80,7 +80,7 @@
       
 <?php  if (isset($_SESSION['flash'])): ?>
 <div class="alert alert-success alert-dismissible flash-message" role="alert" id="flash">
-  <?php echo(htmlspecialchars($_SESSION['flash'])); ?>
+  <?php echo($_SESSION['flash']); ?>
   <button type="button" class="close" data-dismiss="alert" aria-label="Close">
     <span aria-hidden="true">&times;</span>
   </button>
@@ -102,11 +102,11 @@
     <form action="/user/login" method="post">
       <div class="form-group">
         <label for="email">Email address</label>
-        <input type="text" min="1" id="email" name="form[email]" class="form-control" placeholder="Enter email address" value="<?php echo(htmlspecialchars(value($form['email']))); ?>" />
+        <input type="text" min="1" id="email" name="form[email]" class="form-control" placeholder="Enter email address" value="<?php echo(htmlspecialchars($this->value($form['email']))); ?>" />
       </div>
       <div class="form-group">
         <label for="password">Password</label>
-        <input type="password" min="1" id="password" name="form[password]" class="form-control" placeholder="Enter password" value="<?php echo(htmlspecialchars(value($form['password']))); ?>" />
+        <input type="password" min="1" id="password" name="form[password]" class="form-control" placeholder="Enter password" value="<?php echo(htmlspecialchars($this->value($form['password']))); ?>" />
       </div>
       <div class="form-group">
         <button type="submit" class="btn btn-primary">Submit</button>
