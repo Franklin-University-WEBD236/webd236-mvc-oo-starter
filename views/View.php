@@ -57,11 +57,11 @@ class View {
     return implode('/', $cachePath);
   }
 
-  public function renderTemplate($view, $params) {
+  public function renderTemplate($view, $params, $asString=false) {
     $useCache = false;
 
     if (!file_exists($view)) {
-      die("File $view doesn't exist.");
+      new ErrorController(404, "View <code>$view</code> does not exist. Do you want to <a href='/framework/createView/{$view}'>create it</a>?");
     }
     # do we have a cached version?
     clearstatcache();
