@@ -8,7 +8,7 @@
         <div class="row">
           <div class="col">
             <label for="currentPassword">Current password</label>
-            <input type="password" min="1" id="currentPassword" name="form[currentPassword]" class="form-control" placeholder="Enter current password" value="{{value($form['currentPassword'])}}" />
+            <input type="password" min="1" id="currentPassword" name="form[currentPassword]" class="form-control" placeholder="Enter current password" value="{{$this->value($form['currentPassword'])}}" />
           </div>
         </div>
         <div class="row mt-4">
