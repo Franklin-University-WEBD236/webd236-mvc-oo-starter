@@ -29,29 +29,30 @@ function get_createFunction($controller, $function) {
   $controller = $this->sanitize($controller);
   $function = $this->sanitize($function);
   $contents = file_get_contents("controllers/{$controller}.php");
-  $view = $controller . substr($function, strpos($function, "_") + 1);
+  $view = substr($controller, 0, strlen($controller) - 10) . substr($function, strpos($function, "_") + 1);
 
 // -- template here ----------------------------
   $template =<<<END
 
 
-private function {$function}() {
-  // Put your code for {$function} here, something like
-  // 1. Load and validate parameters or form contents
-  // 2. Query or update the database
-  // 3. Render a template or redirect
-  renderTemplate(
-    "views/{$view}.php",
-    array(
-      'title' => '{$view}',
-    )
-  );
-}
+  public function {$function}() {
+    // Put your code for {$function} here, something like
+    // 1. Load and validate parameters or form contents
+    // 2. Query or update the database
+    // 3. Render a template or redirect
+    \$this->view->renderTemplate(
+      "views/{$view}.php",
+      array(
+        'title' => '{$view}',
+      )
+    );
+  }
+
 END;
 // -- template here ----------------------------
 
   // append the new function to the end of the file (before the closing PHP tag, if any)
-  $template = preg_replace("/(\A.*)(\?>\s?|\Z)/msU", "$1$template$2", $contents, 1);
+  $template = preg_replace("/(\A.*)(}\s*\?>\s?|\Z)/msU", "$1$template$2", $contents, 1);
   file_put_contents("controllers/{$controller}.php", $template);
   `refresh`; // force glitch to find the new file
   exit();

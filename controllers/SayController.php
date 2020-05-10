@@ -5,3 +5,5 @@ class SayController extends Controller {
     parent::__construct();
   }
 }
+
+?>
