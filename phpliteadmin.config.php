@@ -22,12 +22,8 @@ $subdirectories = false;
 //if any of the databases do not exist as they are referenced by their path, they will be created automatically
 $databases = array(
 	array(
-		'path'=> 'ToDoList.db3',
-		'name'=> 'To Do List'
-	),
-	array(
-		'path'=> 'database2.sqlite',
-		'name'=> 'Database 2'
+		'path'=> 'database.db3',
+		'name'=> 'Default Database'
 	),
 );
 
