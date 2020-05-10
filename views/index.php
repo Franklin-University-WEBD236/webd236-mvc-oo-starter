@@ -2,91 +2,29 @@
 
 <div class="row">
   <div class="col-lg-12">
-
-[[if (!isLoggedIn()): ]]
-  <h1>Welcome to the To Do List!</h1>
-  <p>The To Do List is your one stop for keeping track of all the things you need to do in life. You can
-    easily create, modify, delete, and mark as done anything you choose to enter into this system. However, you can only
-    vier or enter things into the system if you are logged in. So, feel free to <a href="@@user/login@@">log in</a>
-    or <a href="@@user/register@@">register</a> for an account.</p>
-  <div class="form-group mt-4">
-    <button class="btn btn-primary" onclick="get('@@user/login@@')">Log in</button>
-    <button class="btn btn-secondary" onclick="get('@@user/register@@')">Register</button>
+    <h2>How to use this starter</h2>
+    <p>This application can be used as a starting point for any
+    assignment in WEBD 236 that requires the non-object oriented
+    model-view-controller architecture. It is configured with the
+    framework, an empty database, and some tools. Here are some ways
+    you can use this starter.
+      <ul>
+        <li>Several application level constants are available in <code>include/config.php</code> file. </li>
+        <li>To work with the database, edit the <code>{{CONFIG['databaseFile'] . ".sql"}}</code> file
+        in the root of the project to create tables, add starter
+        data, etc. Then under the "Tools" menu, click "DB Reset."
+        This will reload the database from the SQL file by running the
+        <code>post_index()</code> method in 
+        <code>controllers/ResetController.php</code>.</li>
+        <li>Remember that a URL like <a href='@@say/hello@@'>
+          <code>say/hello</code></a> will
+          look for <code>controllers/SayController.php</code> and invoke the
+          method <code>get_hello()</code> (or <code>post_hello()</code>
+          depending on the HTTP method).</li>
+      </ul>
+    </ul>
+    </p>
   </div>
-
-[[ else: ]]
+</div>
   
-    <form action="@@todo/add@@" method="post">
-      <div class="form-group">
-        <label for="description">Add a new todo.</label>
-        <input type="text" min="1" id="description" name="form[description]" class="form-control" placeholder="Enter description" value=""/>
-      </div>
-      <div class="form-group">
-        <button type="submit" class="btn btn-primary">Submit</button>
-      </div>
-    </form>
-
-  </div>
-</div>
-
-<div class="row">
-  <div class="col-lg-12">
-    <h2>Current To Do:</h2>
-      
-    <table class="table table-striped" frame="box">
-      <thead class="thead-dark">
-        <tr>
-          <th>Description</th>
-          <th></th>
-        </tr>
-      </thead>
-      <tbody>
-[[ foreach ($todos as $todo) : ]]
-        <tr>
-          <td class="align-middle"><?php echo "{$todo['description']}" ?></td>
-          <td>
-            <div class="btn-toolbar align-middle float-right">
-              <button class="btn btn-success d-flex justify-content-center align-content-between mr-1" onclick="post('@@todo/done/{{$todo['id']}}@@')"><span class="material-icons">done</span></button>
-              <button class="btn btn-primary d-flex justify-content-center align-content-between mr-1" onclick="get('@@todo/edit/{{$todo['id']}}@@')"><span class="material-icons">create</span></button>
-              <button class="btn btn-danger d-flex justify-content-center align-content-between" onclick="post('@@todo/delete/{{$todo['id']}}@@')"><span class="material-icons">delete</span></button>
-            </div>
-          </td>
-        </tr>
-[[ endforeach; ]]
-      </tbody>
-    </table>
-  </div>
-</div>
-
-<div class="row">
-  <div class="col-lg-12">
-    <h2>Past To Do:</h2>
-    <table class="table table-striped" frame="box">
-      <thead class="thead-dark">
-        <tr>
-          <th>Description</th>
-          <th></th>
-        </tr>
-      </thead>
-      <tbody>
-[[ foreach ($dones as $todo) : ]]
-        <tr>
-          <td class="align-middle"><?php echo "{$todo['description']}" ?></td>
-          <td>
-            <div class="btn-toolbar align-middle float-right">
-              <button class="btn btn-success d-flex justify-content-center align-content-between mr-1" onclick="post('@@todo/done/{{$todo['id']}}@@')"><span class="material-icons">block</span></button>
-              <button class="btn btn-primary d-flex justify-content-center align-content-between mr-1" onclick="get('@@todo/edit/{{$todo['id']}}@@')"><span class="material-icons">mode_edit</span></button>
-              <button class="btn btn-danger d-flex justify-content-center align-content-between" onclick="post('@@todo/delete/{{$todo['id']}}@@')"><span class="material-icons">delete</span></button>
-            </div>
-          </td>
-        </tr>
-[[ endforeach; ]]
-      </tbody>
-    </table>
-
-[[ endif; ]]
-
-  </div>
-</div>
-          
 %% views/footer.html %% 
