@@ -7,6 +7,7 @@ class FrameworkController extends Controller {
 
   function get_createController($controller) {
     $controller = $this->sanitize($controller);
+    $model = substr($controller, 0, strpos($controller, "Controller"));
 
     // -- template here ----------------------------
     $template =<<<END
@@ -15,6 +16,8 @@ class $controller extends Controller {
 
   public function __construct() {
     parent::__construct();
+    // Need a model? Uncomment below:
+    // \$this->model = '{$model}Model';
   }
 }
 END;
