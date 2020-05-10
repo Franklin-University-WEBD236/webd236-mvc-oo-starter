@@ -11,9 +11,9 @@ class AboutController extends Controller {
     // 2. Query or update the database
     // 3. Render a template or redirect
     $this->view->renderTemplate(
-      "views/AboutIndex.php",
+      "views/AboutUs.php",
       array(
-        'title' => 'AboutIndex',
+        'title' => 'About Us',
       )
     );
   }

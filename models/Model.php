@@ -17,16 +17,21 @@ class Model implements ArrayAccess {
   public static function init() {
     if (!self::$db) {
       try {
-        self::$db = new PDO('sqlite:ToDoList.db3');
+        $fileName = CONFIG['databaseFile'] . ".db3";
+        self::$db = new PDO('sqlite:' . $fileName);
+        if (!self::$db) {
+          errorPage(500, print_r($db->errorInfo(), 1) );
+        }
+        self::adHocQuery("PRAGMA foreign_keys=ON;");
       } catch (PDOException $e) {
-        die("Could not open database. " . $e->getMessage() . $e->getTraceAsString());
+          errorPage(500, "Could not open database. " . $e->getMessage() . $e->getTraceAsString());
       }
     }
     return self::$db;
   }
 
-  public function adHocQuery($q) {
-    $st = $this->db -> prepare($q);
+  public static function adHocQuery($q) {
+    $st = self::db -> prepare($q);
     $st -> execute();
     return $st -> fetchAll(PDO::FETCH_ASSOC);
   }
