@@ -42,7 +42,7 @@
             </a>
             <div class="dropdown-menu dropdown-menu-right">
               <a class="dropdown-item" href="/user/edit/<?php echo(htmlspecialchars($_SESSION['user']->id)); ?>">Edit profile</a>
-              <a class="dropdown-item" href="/user/password/<?php echo(htmlspecialchars($_SESSION['user']->id)); ?>">Change password</a>
+              <a class="dropdown-item" href="/user/change_password/<?php echo(htmlspecialchars($_SESSION['user']->id)); ?>">Change password</a>
               <a class="dropdown-item" href="/user/logout">Logout</a>
             </div>
           </li>
@@ -99,7 +99,7 @@
 <div class="row">
   <div class="col-lg-12">
 
-    <form action="/user/password/<?php echo(htmlspecialchars($id)); ?>" method="post">
+    <form action="/user/change_password/<?php echo(htmlspecialchars($id)); ?>" method="post">
       <div class="form-group">
         <div class="row">
           <div class="col">
@@ -110,11 +110,11 @@
         <div class="row mt-4">
           <div class="col">
             <label for="newPassword1">New password</label>
-            <input type="password" min="1" id="newPassword1" name="form[newPassword1]" class="form-control" placeholder="Enter new password" value="<?php echo(htmlspecialchars(value($form['newPassword1']))); ?>" />
+            <input type="password" min="1" id="newPassword1" name="form[newPassword1]" class="form-control" placeholder="Enter new password" value="<?php echo(htmlspecialchars($this->value($form['newPassword1']))); ?>" />
           </div>
           <div class="col">
             <label for="newPassword2">Verify new password</label>
-            <input type="password" min="1" id="newPassword2" name="form[newPassword2]" class="form-control" placeholder="Re-enter new password" value="<?php echo(htmlspecialchars(value($form['newPassword2']))); ?>" />
+            <input type="password" min="1" id="newPassword2" name="form[newPassword2]" class="form-control" placeholder="Re-enter new password" value="<?php echo(htmlspecialchars($this->value($form['newPassword2']))); ?>" />
           </div>
         </div>
       </div>
