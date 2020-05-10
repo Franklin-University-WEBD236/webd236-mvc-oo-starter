@@ -70,7 +70,7 @@
       Please fix the following errors:
       <ul class="mb-0">
 <?php  foreach ($errors as $error): ?>
-        <li><?php echo(htmlspecialchars($error)); ?></li>
+        <li><?php echo($error); ?></li>
 <?php  endforeach; ?>
       </ul>
     </div>
@@ -80,7 +80,7 @@
       
 <?php  if (isset($_SESSION['flash'])): ?>
 <div class="alert alert-success alert-dismissible flash-message" role="alert" id="flash">
-  <?php echo(htmlspecialchars($_SESSION['flash'])); ?>
+  <?php echo($_SESSION['flash']); ?>
   <button type="button" class="close" data-dismiss="alert" aria-label="Close">
     <span aria-hidden="true">&times;</span>
   </button>

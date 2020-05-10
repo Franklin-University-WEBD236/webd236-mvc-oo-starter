@@ -88,7 +88,16 @@ class View {
       file_put_contents($cacheName, $contents);
     }
     extract($params);
-    include($cacheName);
+    //include($cacheName);
+      ob_start();
+    eval("?>" . $contents);
+    $result = ob_get_contents();
+    ob_end_clean();
+    if (!$asString) {
+      echo $result;
+      exit();
+    }
+    return $result;
   }
 
   function checked(&$something, $compare) {
