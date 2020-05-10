@@ -24,7 +24,7 @@
         </ul>
         <ul class="navbar-nav">
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownToolsLink" data-toggle="dropdown">
               <span class="material-icons" style="vertical-align:bottom">build</span> Tools
             </a>
             <div class="dropdown-menu dropdown-menu-right">
@@ -37,12 +37,12 @@
         <ul class="navbar-nav">
 <?php  if (isLoggedIn()): ?>
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown">
-              <span class="material-icons" style="vertical-align:bottom">account_circle</span> <?php echo(htmlspecialchars($_SESSION['user']['firstName'])); ?> <?php echo(htmlspecialchars($_SESSION['user']['lastName'])); ?>
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownUserLink" data-toggle="dropdown">
+              <span class="material-icons" style="vertical-align:bottom">account_circle</span> <?php echo(htmlspecialchars($_SESSION['user']['firstName'])); ?>
             </a>
             <div class="dropdown-menu dropdown-menu-right">
               <a class="dropdown-item" href="/user/edit/<?php echo(htmlspecialchars($_SESSION['user']->id)); ?>">Edit profile</a>
-              <a class="dropdown-item" href="/user/password/<?php echo(htmlspecialchars($_SESSION['user']->id)); ?>">Change password</a>
+              <a class="dropdown-item" href="/user/change_password/<?php echo(htmlspecialchars($_SESSION['user']->id)); ?>">Change password</a>
               <a class="dropdown-item" href="/user/logout">Logout</a>
             </div>
           </li>

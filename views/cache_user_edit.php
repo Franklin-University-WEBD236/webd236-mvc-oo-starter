@@ -42,7 +42,7 @@
             </a>
             <div class="dropdown-menu dropdown-menu-right">
               <a class="dropdown-item" href="/user/edit/<?php echo(htmlspecialchars($_SESSION['user']->id)); ?>">Edit profile</a>
-              <a class="dropdown-item" href="/user/password/<?php echo(htmlspecialchars($_SESSION['user']->id)); ?>">Change password</a>
+              <a class="dropdown-item" href="/user/change_password/<?php echo(htmlspecialchars($_SESSION['user']->id)); ?>">Change password</a>
               <a class="dropdown-item" href="/user/logout">Logout</a>
             </div>
           </li>
