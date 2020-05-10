@@ -1,5 +1,7 @@
 <?php
-include_once 'include/util.php';
+require_once 'include/config.php';
+require_once 'include/util.php';
+
 
 function routeUrl() {
   $method = $_SERVER['REQUEST_METHOD'];
