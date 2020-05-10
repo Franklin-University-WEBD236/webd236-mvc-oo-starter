@@ -52,7 +52,7 @@ END;
 // -- template here ----------------------------
 
   // append the new function to the end of the file (before the closing PHP tag, if any)
-  $template = preg_replace("/(\A.*)(}\s*\?>\s?|\Z)/msU", "$1$template$2", $contents, 1);
+  $template = preg_replace("/(\A.*)(}\s*(\?>)?\Z)/msU", "$1$template$2", $contents, 1);
   file_put_contents("controllers/{$controller}.php", $template);
   `refresh`; // force glitch to find the new file
   exit();
