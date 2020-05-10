@@ -1,7 +1,9 @@
-# WEBD 236 To Do app with object orientation
+# WEBD 236 Model 2 (with OO) Starter
+
+This project is a good place to start using the MVC framework in an object-oriented way in WEBD 236.
 
 Goals are:
-  - migrate to objects for Model, View, and Controller
-  - create an auto-loader to avoid imports
-  - use the Validator class effectively
-  - move to hashed passwords
+  - Migrate to objects for Model, View, and Controller
+  - Create an auto-loader to avoid imports
+  - Use the Validator class effectively
+  - Move to hashed passwords
