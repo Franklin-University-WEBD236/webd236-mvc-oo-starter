@@ -24,6 +24,7 @@ function routeUrl() {
   error_log("Looking for controller ${controller}", 0);
 
   if (!file_exists($controller)) {
+    new ErrorController()
     die("Controller '$controller' doesn't exist.");
   }
 

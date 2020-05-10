@@ -1,7 +1,14 @@
 <?php
-  function value(&$something, $default = "") {
-    return isset($something) ? $something : $default;
+function checked(&$something, $compare) {
+  if (isset($something) && (is_array($something) && in_array($compare, $something) || $something == $compare)) {
+    return "checked";
   }
+  return "";
+}
+
+function value(&$something, $default = "") {
+  return isset($something) ? $something : $default;
+}
 
 function safeParam($arr, $index, $default="") {
   if ($arr && isset($arr[$index])) {
@@ -39,7 +46,3 @@ function debug($something) {
   print_r($something);
   echo "\n</div>\n";
 }
-
-
-
-?>
