@@ -13,7 +13,7 @@
   <body>
     <nav class="navbar navbar-expand-sm navbar-light bg-light">
         <a class="navbar-brand" href="#">
-          <img src="https://cdn.glitch.com/39f04206-072c-4cf2-8d43-ddaa3d940384%2Frocket.svg?v=1589138182563" width="30" height="30" class="d-inline-block align-top" alt="">&nbsp;<?php echo(htmlspecialchars(CONFIG['applicationName'])); ?></a>
+          <img src="https://cdn.glitch.com/7635e9c3-2015-4ec8-967a-16ca37cc9e55%2Ftodo.svg" width="30" height="30" class="d-inline-block align-top" alt="">To Do List</a>
         <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
           <li class="nav-item active">
             <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
@@ -98,13 +98,11 @@
 
 <div class="row">
   <div class="col-lg-12">
-    <h2>There was an error</h2>
-    <div class="alert alert-danger" role="alert">
-      <?php echo($message); ?>
-    </div>
+    <h1><?php echo(htmlspecialchars($title)); ?></h1>
+    <p>Replace this with your view contents</p>
   </div>
 </div>
-  
+          
     </div>
     <footer class="footer">
       <div class="container">

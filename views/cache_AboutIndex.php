@@ -98,13 +98,11 @@
 
 <div class="row">
   <div class="col-lg-12">
-    <h2>There was an error</h2>
-    <div class="alert alert-danger" role="alert">
-      <?php echo($message); ?>
-    </div>
+    <h1><?php echo(htmlspecialchars($title)); ?></h1>
+    <p>Replace this with your view contents</p>
   </div>
 </div>
-  
+          
     </div>
     <footer class="footer">
       <div class="container">
